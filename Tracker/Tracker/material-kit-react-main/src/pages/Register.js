@@ -1,4 +1,5 @@
 import { Link as RouterLink } from 'react-router-dom';
+import axios from "axios";
 // @mui
 import { styled } from '@mui/material/styles';
 import { Card, Link, Container, Typography } from '@mui/material';
@@ -10,6 +11,9 @@ import Logo from '../components/Logo';
 // sections
 import { RegisterForm } from '../sections/auth/register';
 import AuthSocial from '../sections/auth/AuthSocial';
+import Home from "../components/Home";
+import {API_URL} from "../constants";
+
 
 // ----------------------------------------------------------------------
 
@@ -60,6 +64,14 @@ export default function Register() {
   const smUp = useResponsive('up', 'sm');
 
   const mdUp = useResponsive('up', 'md');
+
+  // const getStudents = () => {
+  //   axios.get(API_URL).then(res => this.setState({ students: res.data }));
+  // };
+  //
+  // const resetState = () => {
+  //   this.getStudents();
+  // };
 
   return (
     <Page title="Register">
