@@ -1,15 +1,26 @@
-import * as Yup from 'yup';
+/* eslint-disable camelcase */
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import jwt_decode from "jwt-decode";
 // form
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 // @mui
-import { Link, Stack, IconButton, InputAdornment } from '@mui/material';
+import {
+    Link,
+    Stack,
+    IconButton,
+    InputAdornment,
+    Button,
+    TextField,
+    InputLabel,
+    OutlinedInput,
+    FormControl, Checkbox, FormControlLabel
+} from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // components
-import Iconify from '../../../components/Iconify';
-import { FormProvider, RHFTextField, RHFCheckbox } from '../../../components/hook-form';
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import Visibility from "@mui/icons-material/Visibility";
+import account from "../../../_mock/account";
 
 // ----------------------------------------------------------------------
 
@@ -18,10 +29,26 @@ export default function LoginForm() {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const LoginSchema = Yup.object().shape({
-    email: Yup.string().email('Email must be a valid email address').required('Email is required'),
-    password: Yup.string().required('Password is required'),
-  });
+    const [state, setState] = useState({
+        email: "",
+        password: '',
+    });
+
+    const [authTokens, setAuthTokens] = useState(() =>
+        localStorage.getItem("authTokens")
+            ? JSON.parse(localStorage.getItem("authTokens"))
+            : null
+    );
+    const [user, setUser] = useState(() =>
+        localStorage.getItem("authTokens")
+            ? jwt_decode(localStorage.getItem("authTokens"))
+            : null
+    );
+
+    const onChange = e => {
+        state[e.target.name] = e.target.value
+        setState({ ...state })
+    };
 
   const defaultValues = {
     email: '',
@@ -29,51 +56,85 @@ export default function LoginForm() {
     remember: true,
   };
 
-  const methods = useForm({
-    resolver: yupResolver(LoginSchema),
-    defaultValues,
-  });
-
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-  } = methods;
-
   const onSubmit = async () => {
-    navigate('/dashboard', { replace: true });
+      navigate('/dashboard', { replace: true });
   };
 
+    const loginUser = async () => {
+        const username = 'testuserx'
+        const password = 'testpassx'
+        const response = await fetch("http://127.0.0.1:8000/accounts/token/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username,
+                password
+            })
+        });
+        const data = await response.json();
+
+        if (response.status === 200) {
+            setAuthTokens(data);
+            setUser(jwt_decode(data.access));
+            localStorage.setItem("authTokens", JSON.stringify(data));
+            alert(jwt_decode(data.access).email)
+        } else {
+            alert("Login failure");
+        }
+    };
+
   return (
-    <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-      <Stack spacing={3}>
-        <RHFTextField name="email" label="Email address" />
+    <div>
+        <Stack spacing={3}>
+            <TextField
+                required
+                id="outlined-required"
+                name="email"
+                label="Email address"
+                value={state.email}
+                onChange={onChange}
+            />
 
-        <RHFTextField
-          name="password"
-          label="Password"
-          type={showPassword ? 'text' : 'password'}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                  <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-      </Stack>
+            <FormControl sx={{ m: 1 }} variant="outlined">
+                <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                <OutlinedInput
+                    id="outlined-adornment-password"
+                    type={showPassword ? 'text' : 'password'}
+                    value={state.password}
+                    name="password"
+                    onChange={onChange}
+                    endAdornment={
+                        <InputAdornment position="end">
+                            <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={() => setShowPassword(!showPassword)}
+                                edge="end"
+                            >
+                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                            </IconButton>
+                        </InputAdornment>
+                    }
+                    label="Password"
+                />
+            </FormControl>
 
-      <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-        <RHFCheckbox name="remember" label="Remember me" />
-        <Link variant="subtitle2" underline="hover">
-          Forgot password?
-        </Link>
-      </Stack>
+            <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
+                <FormControlLabel control={<Checkbox defaultChecked />} label="Remember me" />
+                <Link variant="subtitle2" underline="hover">
+                    Forgot password?
+                </Link>
+            </Stack>
 
-      <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
-        Login
-      </LoadingButton>
-    </FormProvider>
+            <Button
+                variant="contained"
+                onClick={loginUser}
+                fullwidth
+            >
+                Login
+            </Button>
+        </Stack>
+    </div>
   );
 }

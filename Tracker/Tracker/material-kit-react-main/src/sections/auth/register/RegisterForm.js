@@ -21,9 +21,8 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { LoadingButton } from '@mui/lab';
 // components
-import Iconify from '../../../components/Iconify';
-import { FormProvider, RHFTextField } from '../../../components/hook-form';
 import {API_URL} from "../../../constants";
+/* eslint-disable camelcase */
 
 // ----------------------------------------------------------------------
 
@@ -31,13 +30,6 @@ export default function RegisterForm(props) {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
-
-  // const RegisterSchema = Yup.object().shape({
-  //   firstName: Yup.string().required('First name required'),
-  //   lastName: Yup.string().required('Last name required'),
-  //   email: Yup.string().email('Email must be a valid email address').required('Email is required'),
-  //   password: Yup.string().required('Password is required'),
-  // });
 
   const [state, setState] = useState({
     firstName: '',
@@ -69,6 +61,34 @@ export default function RegisterForm(props) {
       props.resetState();
     });
     navigate('/login', { replace: true });
+  };
+
+  const addUser = async () => {
+    const username = 'testuser'
+    const email = state.email
+    const password = state.password
+    const password2 = state.password
+    const first_name = state.firstName
+    const last_name = state.lastName
+    const response = await fetch("http://127.0.0.1:8000/accounts/register/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username,
+        password,
+        password2,
+        email,
+        first_name,
+        last_name,
+      })
+    })
+    if (response.status === 201) {
+      // alert("login");
+    } else {
+      alert("Something went wrong!");
+    }
   };
 
   return (
@@ -127,7 +147,14 @@ export default function RegisterForm(props) {
 
           <Button
               variant="contained"
-              onClick={createStudent}
+              onClick={addUser}
+          >
+            Add User
+          </Button>
+
+          <Button
+              variant="contained"
+              onClick={addUser}
           >
             Register
           </Button>
