@@ -3,3 +3,6 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+
+# Node dependencies to lessen the burden in the Repo
+/Tracker/Tracker/material-kit-react-main/node-modules
