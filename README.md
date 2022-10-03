@@ -7,9 +7,10 @@
 ## Version 0.2.0
 
 ### Features
-* User registration of SDM
-* User login of SDM
-* User logout of SDM
+* Roles added
+* User profile added
+* Roles assignment to users added
+* New users are able to write their first and last names during registration 
 
 ### Bug Fixes
 N/A
