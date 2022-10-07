@@ -7,7 +7,7 @@
             {% for role in profile.role.all %}
                 <h2>Ocupation: {{ role }}</h2>
                     {% for cert in role.certificate.all %}
-                        <h3>Certificat: {{ cert }}</h3>
+                        <h3>Certificate: {{ cert }}</h3>
                     {% endfor %}        
             {% endfor %} 
         {% endif %}  
