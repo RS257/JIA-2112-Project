@@ -2,10 +2,12 @@
 
 {% block  content %}
     <h1>Welcome, {{user.username}}, your id is {{user.id}}</h1>
-    {% for role in roles %}
-        {% if user.id == role.employee_id %}
-            <li>{{role.occupation}}<li>
-        {% endif %}    
+    {% for profile in profiles %}
+        {% if profile.user.username == user.username %}     
+            {% for role in profile.role.all %}
+                <h2>{{ role }}</h2>        
+            {% endfor %} 
+        {% endif %}  
     {% endfor %}
-{% endblock   %}
+{% endblock %}
 

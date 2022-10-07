@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm
-from .models import RoleAssignment
+from .models import Profile
+#from .models import RoleAssignment
 
 # Create your views here.
 
@@ -11,9 +12,9 @@ def indexView(request):
 
 @login_required
 def dashboardView(request):
-    roles = RoleAssignment.objects.all()
-    context = {'roles': roles,}
-    return render(request, 'dashboard.html', context)    
+    profile = Profile.objects.all()
+    context = {'profiles': profile,}
+    return render(request, 'dashboard.html', context)
 
 
 def registerView(request):

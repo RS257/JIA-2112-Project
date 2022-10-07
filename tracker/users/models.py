@@ -4,10 +4,16 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+class Certificate(models.Model):
+    name = models.CharField('Name', blank=True, max_length=150, default='')
+
+    def __str__(self):
+        return self.name
 
 class Role(models.Model):
-    name = models.CharField('Role', blank=True, max_length=50, default='')
-    
+    name = models.CharField('Role', blank=True, max_length=150, default='')
+    certificate = models.ManyToManyField(Certificate,  blank=True)
+        
     def __str__(self):
         return self.name
 
@@ -16,25 +22,29 @@ class Role(models.Model):
         verbose_name_plural = "Roles"
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
-    role = models.ManyToManyField(Role, through='RoleAssignment')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #role = models.ManyToManyField(Role, through='RoleAssignment')
+    role = models.ManyToManyField(Role, blank=True)
 
     def __str__(self):
         return self.user.first_name + " " + self.user.last_name
 
-    def getRole(self):
-        return self.role
+    def roles(self):
+        return ", ".join([str(p) for p in self.role.all()])
 
-class RoleAssignment(models.Model):
-    employee = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    occupation = models.ForeignKey(Role, on_delete=models.CASCADE)
+    def fullName(self):
+        return self.user.first_name + " " + self.user.last_name
 
-    def __str__(self):
-        return self.employee.user.first_name + " " + self.employee.user.last_name
+# class RoleAssignment(models.Model):
+#     employee = models.ForeignKey(Profile, on_delete=models.CASCADE)
+#     occupation = models.ForeignKey(Role, on_delete=models.CASCADE)
 
-    #prevent an employee from assigning for the same occupation twice 
-    class Meta:
-        unique_together = [['employee', 'occupation']]
+#     def __str__(self):
+#         return self.employee.user.first_name + " " + self.employee.user.last_name
+
+#     #prevent an employee from assigning for the same occupation twice 
+#     class Meta:
+#         unique_together = [['employee', 'occupation']]
 
 
 
