@@ -5,7 +5,10 @@
     {% for profile in profiles %}
         {% if profile.user.username == user.username %}     
             {% for role in profile.role.all %}
-                <h2>{{ role }}</h2>        
+                <h2>Ocupation: {{ role }}</h2>
+                    {% for cert in role.certificate.all %}
+                        <h3>Certificat: {{ cert }}</h3>
+                    {% endfor %}        
             {% endfor %} 
         {% endif %}  
     {% endfor %}
