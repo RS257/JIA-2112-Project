@@ -3,7 +3,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm
 from .models import Profile
-#from .models import RoleAssignment
 
 # Create your views here.
 
