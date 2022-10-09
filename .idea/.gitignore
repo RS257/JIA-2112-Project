@@ -6,5 +6,8 @@
 
 # Node dependencies to lessen the burden in the Repo
 /Tracker/Tracker/material-kit-react-main/node-modules
+
+#ignoring the compiled py files that are autgenerated
 tracker/tracker/__pycache__/
 tracker/users/migrations/__pycache__/
+
