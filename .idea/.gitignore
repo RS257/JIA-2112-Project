@@ -10,4 +10,5 @@
 #ignoring the compiled py files that are autgenerated
 tracker/tracker/__pycache__/
 tracker/users/migrations/__pycache__/
+tracker/users/__pycache__/
 
