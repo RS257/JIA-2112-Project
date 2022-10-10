@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b81cecd9-d52e-45a4-ac9d-a009c08b4b4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/tracker/users/static/register.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tracker/users/Templates/Registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/tracker/users/Templates/Registration/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tracker/users/Templates/Registration/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/tracker/users/Templates/Registration/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tracker/users/Templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tracker/users/Templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tracker/users/static/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/tracker/users/static/layouts.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="add-stylesheet" />
+        <entry key="$PROJECT_DIR$" value="registration-style" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
