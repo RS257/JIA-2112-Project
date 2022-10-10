@@ -2,6 +2,12 @@
 
 {% block  content %}
     <h1>Welcome, {{user.username}}, your id is {{user.id}}</h1>
+    <div class="sidenav">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
     {% for profile in profiles %}
         {% if profile.profile_name.username == user.username %}     
             {% for role in profile.roles_list.all %}
