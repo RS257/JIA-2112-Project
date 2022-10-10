@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b81cecd9-d52e-45a4-ac9d-a009c08b4b4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/tracker/users/static/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tracker/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tracker/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tracker/users/Templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tracker/users/Templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tracker/users/Templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tracker/users/Templates/dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +13,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="add-static-files" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,7 +51,7 @@
       <option name="presentableId" value="Default" />
       <updated>1665369595738</updated>
       <workItem from="1665369597355" duration="96000" />
-      <workItem from="1665415658226" duration="3894000" />
+      <workItem from="1665415658226" duration="4319000" />
     </task>
     <servers />
   </component>
