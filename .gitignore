@@ -8,6 +8,5 @@
 /Tracker/Tracker/material-kit-react-main/node-modules
 
 #ignoring the compiled py files that are autgenerated
-tracker/tracker/__pycache__/
-tracker/users/__pycache__/
-tracker/users/migrations/__pycache__/
+**/__pycache__/
+**/_pycache_/
