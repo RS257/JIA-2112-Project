@@ -10,3 +10,5 @@
 #ignoring the compiled py files that are autgenerated
 **/__pycache__/
 **/_pycache_/
+
+**.pyc
