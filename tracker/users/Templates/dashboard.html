@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block  content %}
+    <h1>Welcome, {{user.username}}, your id is {{user.id}}</h1>
+    {% for profile in profiles %}
+        {% if profile.profile_name.username == user.username %}     
+            {% for role in profile.roles_list.all %}
+                <h2>Ocupation: {{ role }}</h2>
+                    {% for cert in role.certificates_list.all %}
+                        <h3>Certificate: {{ cert }}</h3>
+                    {% endfor %}        
+            {% endfor %} 
+        {% endif %}  
+    {% endfor %}
+{% endblock %}
+
