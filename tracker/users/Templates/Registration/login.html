@@ -3,7 +3,8 @@
 {%block content %}
     <div class="center">
         <div>
-            <h1>System Login</h1>
+            <center><h1>System Login</h1><center>
+            <body>Login using your provided credentials<body>
             <form method="POST">
                 {% csrf_token %}
                 {{form.as_p}}
