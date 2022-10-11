@@ -2,14 +2,14 @@
 
 {% block  content %}
     <div class="sidebar">
-        <a class="active" href="#">Dashboard</a>
+        <center><a class="active" href="#">Dashboard</a><center>
         <a href="#">Page 2</a>
         <a href="#">Page 3</a>
         <a href="#">Page 4</a>
     </div>
 
     <div class="content">
-        <center><h1 style="font-family: Arial">Welcome, {{user.username}}, your id is {{user.id}}</h1></center>
+        <center><h1 style="font-family: Arial">Welcome, {{user.username}}, your ID is {{user.id}}</h1></center>
         <center><p style="font-family: Arial"><font color=red>Page Content To Be Added</p><center>
     </div>
     {% for profile in profiles %}
