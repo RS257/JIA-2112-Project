@@ -3,11 +3,11 @@
 {%block content %}
     <div class="center">
         <div>
-            <h1>Create New Account</h1>
+            <center><h1>Create New Account</h1></center>
             <form method="POST">
                 {% csrf_token %}
                 {{form.as_p}}
-                <button>Register</button>
+                <center><button>Register</button></center>
             </form>
         </div>
     </div>
