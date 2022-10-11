@@ -9,8 +9,8 @@
     </div>
 
     <div class="content">
-        <h1>Welcome, {{user.username}}, your id is {{user.id}}</h1>
-        <p>Page Content</p>
+        <center><h1 style="font-family: Arial">Welcome, {{user.username}}, your id is {{user.id}}</h1></center>
+        <p style="font-family: Arial">Page Content</p>
     </div>
     {% for profile in profiles %}
         {% if profile.profile_name.username == user.username %}
