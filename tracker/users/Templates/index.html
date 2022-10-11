@@ -8,7 +8,7 @@
 </head>
 <body>
     {% block content %}
-        <center><h1>Homepage</h1></center>
+        <center><h1>Valliant Certification Tracker</h1></center>
         {% if user.is_authenticated %}
             <center><a href="{% url 'logout' %}">Logout</a></center>
         {% else %}
