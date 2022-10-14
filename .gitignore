@@ -12,3 +12,4 @@
 **/_pycache_/
 
 **.pyc
+tracker/db.sqlite3
