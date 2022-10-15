@@ -12,7 +12,6 @@ class UserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('first_name','last_name', 'username', 'email', 'password1' ,'password2' )
-    
 
     # Since username, password1, password2 are standard Django forms
     # We need to create a __init__ function to bootstrapify the fields 
