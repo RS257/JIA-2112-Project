@@ -8,7 +8,13 @@
 </head>
 <body>
     {% block content %}
-        {% comment %} <center><h1>Valliant Certification Tracker</h1></center> {% endcomment %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+            <img src="{% static 'Logo.jpg' %}" alt="" width="50" height="50">
+            <a class="navbar-brand">Valliant Certification Tracker</a>
+            </div>
+            </div>
+        </nav>
         {% if user.is_authenticated %}
             <center><a href="{% url 'logout' %}">Logout</a></center>
         {% else %}
