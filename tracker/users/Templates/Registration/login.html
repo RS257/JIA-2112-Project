@@ -9,6 +9,7 @@
                 {% csrf_token %}
                 {{form.as_p}}
                 <center><button>Login</button><center>
+                <a href="{% url 'home' %}" class="btn btn-primary"><h3>Back</h3></a>   
             </form>
         </div>
     </div>
