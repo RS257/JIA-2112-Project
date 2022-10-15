@@ -13,5 +13,10 @@
 
 **.pyc
 
+
+# ignore certifications in testing 
+tracker/media/certificates/
+
+
 # Potentially remove  tracker/db.sqlite3 from gitignore if db issues arise
 tracker/db.sqlite3
