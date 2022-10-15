@@ -8,9 +8,12 @@
                 <div class="shadow-lg p-4 mb-5 bg-body rounded">
                 {% csrf_token %}
                 {{form.as_p}}
-
-                <center><button>Register</button></center>
-                <center><a href="{% url 'home' %}"><button><h2>Back</a></button></h2></center>
+                
+                <container>
+                    <center><button>Register</button></center>
+                    {% comment %} <a href="{% url 'dashboard' %}" class="btn btn-primary"><h3>Register</h3></a> {% endcomment %}
+                    <href="{% url 'home' %}"><button><h3>Back</button></h3>
+                <container>
                 </div>
             </form>
         </div>
