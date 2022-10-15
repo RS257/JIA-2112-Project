@@ -12,4 +12,7 @@
 **/_pycache_/
 
 **.pyc
+
+
+# Potentially remove  tracker/db.sqlite3 from gitignore if db issues arise
 tracker/db.sqlite3

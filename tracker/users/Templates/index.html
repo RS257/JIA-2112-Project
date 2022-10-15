@@ -2,18 +2,33 @@
 {% load static %}
 <html>
 <head>
-    <link rel="stylesheet" href="{% static 'dashboard.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% static 'layouts.css' %}" type="text/css"/>
     <title>Simple Auth System</title>
 </head>
 <body>
     {% block content %}
-        <center><h1>Valliant Certification Tracker</h1></center>
+        {% comment %} <center><h1>Valliant Certification Tracker</h1></center> {% endcomment %}
         {% if user.is_authenticated %}
             <center><a href="{% url 'logout' %}">Logout</a></center>
         {% else %}
-            <center><a href="{% url 'login_url' %}">Login</a></center>
-            <center><a href="{% url 'register_url' %}">Register</a></center>
+
+            <div class="container" align = "center">
+               
+                <div class="card" style="width: 18rem;" align="center">
+                    
+                    <img src="{% static 'Logo.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h1>Valliant Certification Tracker</h1>
+                    <a href="{% url 'login_url' %}" class="btn btn-primary"><h3>Login</h3></a>
+                    <a href="{% url 'register_url' %}" class="btn btn-primary"><h3>Register</h3></a>
+                    </div>
+                </div> 
+            </div>
+              
+            
+            {% comment %} <center><a href="{% url 'login_url' %}">Login</a></center>
+            <center><a href="{% url 'register_url' %}">Register</a></center> {% endcomment %}
         {% endif %}
     {% endblock %}
 </body>
