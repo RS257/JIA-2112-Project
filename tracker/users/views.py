@@ -20,6 +20,7 @@ def dashboardView(request):
     #context = {'profiles': profile, 'form': form}
     if request.method == 'POST':
         if form.is_valid():
+            form.instance.profile = request.user.profile
             form.save()
             img_obj = form.instance
             return render(request, 'dashboard.html', {'profiles': profile, 'form': form, 'img_obj': img_obj})

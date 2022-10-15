@@ -41,7 +41,7 @@ class Profile(models.Model):
 class Images(models.Model):
     profile = models.ForeignKey(Profile, default=None, null=True, blank=True, on_delete=models.CASCADE)
     image_name = models.CharField('Certificate name', null=True, blank=False, max_length=50, default='')
-    images = models.FileField(upload_to = 'certificates/%Y/%m/%d/', null=True, blank=True)
+    images = models.FileField(upload_to = 'certificates/%Y/%m/%d/', null=True, blank=False)
  
     def __str__(self):
         return self.image_name
