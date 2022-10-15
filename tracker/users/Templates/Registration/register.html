@@ -4,14 +4,12 @@
     <div class="center">
         <div>
             <center><h1>Create New Account</h1></center>
-            <div class= "shadow p-4 mb-5 bg-body rounded">
-                <form method="POST">
-                    {% csrf_token %}
-                    {{form.as_p}}
-                    <a href="{% url 'dashboard' %}" class="btn btn-primary"><h4>Register</h4></a>
-                    <a href="{% url 'home' %}" class="btn btn-primary"><h4>Back</h4></a>
-                </form>
-            </div>
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <center><button>Register</button></center>
+                <a href="{% url 'home' %}" class="btn btn-primary"><h3>Back</h3></a>
+            </form>
         </div>
     </div>
 {% endblock %} 
