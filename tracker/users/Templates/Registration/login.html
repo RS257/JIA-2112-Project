@@ -1,16 +1,23 @@
 {% extends 'index.html' %}
+{% load static %}
 
 {%block content %}
     <div class="center">
         <div>
-            <center><h1>System Login</h1><center>
+            <div class="container" align = "center">
+               
+                <div class="card" style="width: 22rem; border-color: #232323; background-color: #232323; color: white; padding-bottom: 2rem;" align="center">
+                    
+                    <img src="{% static 'Logo.png' %}" class="card-img-top" alt="...">
+                </div>
+            </div>
             <div class="shadow-lg p-4 mb-5 bg-body rounded">
                 <center><body>Login to your dashboard using provided credentials<body><center>
-                <form method="POST">
+                <form method="POST" style="padding-top: .75rem;">
                     {% csrf_token %}
                     {{form.as_p}}
-                    <center><button>Login</button><center>
-                    <href="{% url 'home' %}"><button>Back</button>
+                    <button style="background-color: #F07621; border-color: #F07621; color: black; width: 9rem;" class="btn btn-primary">Login</button>
+                    <href="{% url 'home' %}"><button style="background-color: #F07621; border-color: #F07621; color: black; width: 9rem;" class="btn btn-primary">Back</button>
                 </form>
             </div>
         </div>

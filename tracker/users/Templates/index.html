@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{% static 'layouts.css' %}" type="text/css"/>
     <title>Simple Auth System</title>
 </head>
-<body>
+<body style="background-color: #232323;">
     {% block content %}
         {% comment %} <center><h1>Valliant Certification Tracker</h1></center> {% endcomment %}
         {% if user.is_authenticated %}
@@ -15,16 +15,15 @@
 
             <div class="container" align = "center">
                
-                <div class="card" style="width: 18rem;" align="center">
+                <div class="card" style="width: 22rem; border-color: #232323; background-color: #232323; color: white;" align="center">
                     
-                    <img src="{% static 'Logo.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'Logo.png' %}" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h1>Valliant Certification Tracker</h1>
-                    <a href="{% url 'login_url' %}" class="btn btn-primary"><h3>Login</h3></a>
-                    <a href="{% url 'register_url' %}" class="btn btn-primary"><h3>Register</h3></a>
+                    <h1 style="padding-bottom: .75rem;">Valliant Certification Tracker</h1>
+                    <a href="{% url 'login_url' %}" class="btn btn-primary" style="background-color: #F07621; border-color: #F07621; color: black; width: 9rem;"><h3>Login</h3></a>
+                    <a href="{% url 'register_url' %}" class="btn btn-primary" style="background-color: #F07621; border-color: #F07621; color: black; width: 9rem;"><h3>Register</h3></a>
                     </div>
-                </div> 
-            </div>
+                </div>
               
             
             {% comment %} <center><a href="{% url 'login_url' %}">Login</a></center>
