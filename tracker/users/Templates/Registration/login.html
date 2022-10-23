@@ -17,11 +17,9 @@
                     {% csrf_token %}
                     {{form.as_p}}
                     <button style="background-color: #F07621; border-color: #F07621; color: black; width: 9rem;" class="btn btn-primary">Login</button>
-                    <a href="{% url 'home' %}" class="btn btn-primary" style="background-color: #F07621; border-color: #F07621; color: black; width: 9rem;">Back</a>
-                    
+                    <href="{% url 'home' %}"><button style="background-color: #F07621; border-color: #F07621; color: black; width: 9rem;" class="btn btn-primary">Back</button>
                 </form>
             </div>
         </div>
-
     </div>
 {% endblock %}
