@@ -16,8 +16,8 @@
                 <form method="POST" style="padding-top: .75rem;">
                     {% csrf_token %}
                     {{form.as_p}}
+                    <a href="{% url 'home' %}" class="btn btn-primary" style="width: 9rem;">Back</a>
                     <button style="width: 9rem;" class="btn btn-primary">Login</button>
-                    <href="{% url 'home' %}"><button style="width: 9rem;" class="btn btn-primary">Back</button>
                 </form>
             </div>
         </div>
