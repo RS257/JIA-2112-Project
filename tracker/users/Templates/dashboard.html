@@ -19,13 +19,18 @@
     }
     
     tr:nth-child(even) {
-      background-color: #f2f2f2
+      background-color: #f2f2f2;
+      color: black;
+    }
+
+    tr:nth-child(odd) {
+      color: #F07621;
     }
     </style>
     </head>
     <body>
     
-    <center><h2><strong>Welcome, {{user.username}}</strong></h2></center>
+    <center><h2 style="color: #F07621;"><strong>Welcome, {{user.username}}</strong></h2></center>
     <div class="container">
         <table id="myTable">
             <tr>
