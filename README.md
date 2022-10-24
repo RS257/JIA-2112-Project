@@ -4,6 +4,18 @@
 
 # Release Notes
 
+## Version 0.3.0
+
+### Features
+
+
+### Bug Fixes
+- 
+
+### Known Issues 
+N/A
+
+
 ## Version 0.2.0
 
 ### Features
