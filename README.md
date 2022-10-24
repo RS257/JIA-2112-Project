@@ -18,9 +18,8 @@
     - Certificates are organized by date uploaded in the backend 
 
 - Administrative Updates
-    - Ability to disable employees from the system
-    - Certification Progress Lookup
-    - Ability for Admin to upload documents for users if need be
+    - Ability to login into the System
+
 
 - UI Overhaul
     - Coloring is aligned to the Valliant School System Colors
