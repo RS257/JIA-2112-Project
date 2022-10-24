@@ -1,36 +1,175 @@
 {% extends 'index.html' %}
 
+
 {% block  content %}
-    <div class="sidebar">
-        <center><a class="active" href="#">Dashboard</a><center>
-        <a href="#">Page 2</a>
-        <a href="#">Page 3</a>
-        <a href="#">Page 4</a>
-    </div>
+<style>
+    table {
+      border-spacing: 0;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+    
+    th {
+      cursor: pointer;
+    }
+    
+    th, td {
+      text-align: left;
+      padding: 16px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+      color: black;
+    }
 
-    <div class="content" style="color: white;">
-        <center><h1 style="font-family: Arial">Welcome, {{user.username}}, your ID is {{user.id}}</h1></center>
-        <center><p style="font-family: Arial"><font color=red>Page Content To Be Added</p><center>
-        {% for profile in profiles %}
-            {% if profile.profile_name.username == user.username %}
-                {% for role in profile.roles_list.all %}
-                    <h2 style="color: white;">Ocupation: {{ role }}</h2>
+    tr:nth-child(odd) {
+      color: #F07621;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <center><h2 style="color: #F07621;"><strong>Welcome, {{user.username}}</strong></h2></center>
+    <div class="container">
+        <table id="myTable">
+            <tr>
+                <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
+                <th onclick="sortTable(0)">Certificate</th>
+                <th onclick="sortTable(1)">Role</th>
+                <th onclick="sortTable(2)">Completion Date</th>
+                <th onclick="sortTable(3)">File</th>
+                <th></th>               
+            </tr>
+            {% for profile in profiles %}
+                {% if profile.profile_name.username == user.username %}
+                    {% for role in profile.roles_list.all %}
                         {% for cert in role.certificates_list.all %}
-                            <h3 style="color: white;">Certificate: {{ cert }}</h3>
-                            <form method="post" style="color:white;" multipart/form-data">
-                                {% csrf_token %}
-                                 {{ form.as_p }}
-                                <button type="submit">Upload</button>
-                              </form>
-                              
-                              {% if img_obj %}
-                                <h3>Succesfully uploaded : {{img_obj.image_name}}</h3>
-                                <img src="{{ img_obj.images.url}}" alt="connect" style="max-height:300px">
-                              {% endif %}
-                        {% endfor %}
-                {% endfor %}
-            {% endif %}
-        {% endfor %}
+                            {% if cert.is_published %}                             
+                                <tr>
+                                    <td>{{cert}}</td>
+                                    <td>{{role}}</td>
+                                    <td>
+                                        {% for image in images reversed %}
+                                            {% if image.profile.profile_name.username == user.username %}
+                                                {% if image.certificate == cert %} 
+                                                    {% ifchanged image.certificate %}
+                                                        {{image.certification_completion_date}}
+                                                    {% endifchanged %} 
+                                                {% endif %} 
+                                            {% endif %}                                   
+                                        {% endfor %} 
+                                    </td> 
+                                    <td> 
+                                        {% for image in images reversed %}
+                                            {% if image.profile.profile_name.username == user.username %}
+                                                {% if image.certificate == cert %} 
+                                                    {% ifchanged image.certificate %}
+                                                       {% comment %} {{image}} Id: {{image.id}} {% endcomment %}
+                                                       <a href="{{image.file.url}}" download>{{image}}</a>
+                                                    {% endifchanged %}  
+                                                {% endif %} 
+                                            {% endif %}
+                                        {% endfor %} 
+                                    </td>  
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Upload </button></div>
+                                                    
+                                        <!-- The Modal -->
+                                        <div class="modal fade" id="myModal">
+                                            <div class="modal-dialog">
+                                            <div class="modal-content">
+                                        
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                <h4 class="modal-title">Please choose the correct certificate.</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                </div>
+                                        
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    <form method="post" enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                                        {{ form.as_p }}
+                                                        <button type="submit">Upload</button>
+                                                    </form>
+                                                    
+                                                    {% if img_obj %}
+                                                        <h3>Succesfully uploaded : {{img_obj.image_name}}</h3>
+                                                        <img src="{{ img_obj.file.url}}" alt="connect" style="max-height:300px">
+                                                    {% endif %}
+                                                </div>
+                                        
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>                                                 
+                            {% endif %} 
+                        {% endfor %}     
+                    {% endfor %}   
+                {% endif %}
+            {% endfor %}        
+        </table>
     </div>
-{% endblock %}
+    <script>
+    function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("myTable");
+      switching = true;
+      //Set the sorting direction to ascending:
+      dir = "asc"; 
+      /*Make a loop that will continue until
+      no switching has been done:*/
+      while (switching) {
+        //start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /*Loop through all table rows (except the
+        first, which contains table headers):*/
+        for (i = 1; i < (rows.length - 1); i++) {
+          //start by saying there should be no switching:
+          shouldSwitch = false;
+          /*Get the two elements you want to compare,
+          one from current row and one from the next:*/
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          /*check if the two rows should switch place,
+          based on the direction, asc or desc:*/
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              //if so, mark as a switch and break the loop:
+              shouldSwitch= true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              //if so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          /*If a switch has been marked, make the switch
+          and mark that a switch has been done:*/
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          //Each time a switch is done, increase this count by 1:
+          switchcount ++;      
+        } else {
+          /*If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again.*/
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+    </script>
 
+    {% endblock %}
