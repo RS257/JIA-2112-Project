@@ -36,5 +36,5 @@ admin.site.register(Role, StateAdminRole)
 admin.site.register(Certificate, CertificateAdmin)
 admin.site.register(Images, StateImageAdmin)
 
-admin.site.site_header = 'Valient School District'
+admin.site.site_header = 'Valliant Certification Tracker'
 
