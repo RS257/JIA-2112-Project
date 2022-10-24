@@ -11,7 +11,7 @@
 - We addded a table for Faculty and Staff to see what certifications need to be completed. 
     - This is based on the Role of the Faculty and Staff assigned so it can change for users.
 
-- There is an `upload` button to upload a certification.
+- There is an `Upload` button to upload a certification.
     - Added an ability to allow the user to browse your local files to upload
     - Added a Dropdown selection on menu for the specific certification
     - Added a Date completed selection on to the certifications
