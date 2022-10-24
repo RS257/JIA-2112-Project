@@ -8,7 +8,7 @@
 
 ### Features
 
-- We addded a table for Faculty and Staff to see what certifications need to be completed. 
+- added a table for Faculty and Staff to see what certifications need to be completed. 
     - This is based on the Role of the Faculty and Staff assigned so it can change for users.
 
 - There is an `Upload` button to upload a certification.
@@ -17,8 +17,13 @@
     - Added a Date completed selection on to the certifications
     - Certificates are organized by date uploaded in the backend 
 
+- Administrative Updates
+    - Ability to disable employees from the system
+    - Certification Progress Lookup
+    - Ability for Admin to upload documents for users if need be
+
 - UI Overhaul
-    - Colroing is aligned to the Valliant School System Colors
+    - Coloring is aligned to the Valliant School System Colors
     - Added Bootstrap5 to the project
     - Forms have shadows around them to better visually seperate them from the space they are in.
     - Created `Back` buttons on the Login and Registration Pages
