@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Images, Certificate
+from .models import Images, Certificate, Profile
 
 #Registartion form to render in html
 class UserForm(UserCreationForm):
@@ -13,6 +13,7 @@ class UserForm(UserCreationForm):
         model = User
         fields = ('first_name','last_name', 'username', 'email', 'password1' ,'password2' )
 
+    
     # Since username, password1, password2 are standard Django forms
     # We need to create a __init__ function to bootstrapify the fields 
     def __init__ (self, *args, **kwargs):
@@ -23,9 +24,12 @@ class UserForm(UserCreationForm):
         self.fields['password2'].widget.attrs['class'] = 'form-control'
         
 
+class DateInput(forms.DateInput):
+    input_type = 'date'    
 #Upload form to render in html
 class ImageForm(forms.ModelForm):
     """Form for the image model"""
     class Meta:
         model = Images
-        fields = ('image_name', 'images')
+        widgets = {'certification_completion_date': DateInput()}
+        fields = ('certificate', 'certification_completion_date', 'file')

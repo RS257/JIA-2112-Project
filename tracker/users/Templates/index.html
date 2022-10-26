@@ -4,9 +4,10 @@
 <head>
     <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% static 'layouts.css' %}" type="text/css"/>
-    <title>Simple Auth System</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Valliant Certification Tracker</title>
 </head>
-<body>
+<body style="background-color: #232323;">
     {% block content %}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -21,16 +22,15 @@
 
             <div class="container" align = "center">
                
-                <div class="card" style="width: 18rem;" align="center">
+                <div class="card-index" style="width: 48rem;" align="center">
                     
-                    <img src="{% static 'Logo.jpg' %}" class="card-img-top" alt="...">
+                    <center><img src="{% static 'Logo.png' %}" style="width: 22rem;" class="card-img-top" alt="..."></center>
                     <div class="card-body">
-                    <h1>Valliant Certification Tracker</h1>
-                    <a href="{% url 'login_url' %}" class="btn btn-primary"><h3>Login</h3></a>
-                    <a href="{% url 'register_url' %}" class="btn btn-primary"><h3>Register</h3></a>
+                    <h1 style="padding-bottom: .75rem;">Valliant Certification Tracker</h1>
+                    <a href="{% url 'login_url' %}" class="btn btn-primary" style="width: 9rem;"><h3>Login</h3></a>
+                    <a href="{% url 'register_url' %}" class="btn btn-primary" style="width: 9rem;"><h3>Register</h3></a>
                     </div>
-                </div> 
-            </div>
+                </div>
               
             
             {% comment %} <center><a href="{% url 'login_url' %}">Login</a></center>
