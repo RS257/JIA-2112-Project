@@ -25,7 +25,10 @@
     {% block content %}
         
         {% if user.is_authenticated %}
-            <center><a href="{% url 'logout' %}" class="btn btn-primary" style="width: 9rem;"><h3>Yes</h3></a></center>
+            <center>
+            <h1 style='color:white'>Logout?</h1>
+            <a href="{% url 'logout' %}" class="btn btn-primary" style="width: 9rem;"><h3>Yes</h3></a>
+            </center>
             
         {% else %}
 
