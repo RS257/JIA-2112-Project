@@ -15,7 +15,8 @@
             {% comment %} TODO link to dashboard or hom?  {% endcomment %}
             <a class="navbar-brand" href = "{% url 'home' %}">Valliant Certification Tracker </a>
 
-            <button class="btn btn-outline-success" disabled='disabled' href = "{% url 'logout' %}" >Logout</button>
+            <button class="btn btn-outline-success" disabled='disabled' href = "{% url 'home' %}" >Logout</button>
+            
         </div>
     </nav>
     <br/>
@@ -24,7 +25,8 @@
     {% block content %}
         
         {% if user.is_authenticated %}
-            <center><a href="{% url 'logout' %}">Logout</a></center>
+            <center><a href="{% url 'logout' %}" class="btn btn-primary" style="width: 9rem;"><h3>Yes</h3></a></center>
+            
         {% else %}
 
             <div class="container" align = "center">
@@ -39,9 +41,6 @@
                     </div>
                 </div>
               
-            
-            {% comment %} <center><a href="{% url 'login_url' %}">Login</a></center>
-            <center><a href="{% url 'register_url' %}">Register</a></center> {% endcomment %}
         {% endif %}
     {% endblock %}
 </body>
