@@ -3,14 +3,23 @@ from .models import Profile, Role, Certificate, Images
 from django.db.models.functions import Concat
 
 class StateImageAdmin(admin.ModelAdmin):
-    list_display = ('certificate', 'profile', 'certification_completion_date')
+    list_display = ('certificate', 'profile', 'certification_completion_date', 'certification_due_date', 'is_valid')
 
 class ImagesAdmin(admin.StackedInline):
     model = Images
 
+def make_active(modeladmin, request, queryset):
+    queryset.update(is_active=True)
+make_active.short_description = "Make active"
+
+def make_inactive(modeladmin, request, queryset):
+    queryset.update(is_active=False)
+make_inactive.short_description = "Make inactive"    
+
 class StateAdminProfile(admin.ModelAdmin):
-    list_display = ('profile_name', 'fullName', 'roles')
+    list_display = ('profile_name', 'fullName', 'roles', 'is_active')
     inlines = [ImagesAdmin]
+    actions = [make_active, make_inactive]
 
     class Meta:
        model = Profile

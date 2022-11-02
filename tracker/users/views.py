@@ -5,10 +5,7 @@ from .forms import UserForm
 from django.shortcuts import render
 from .models import Profile, Images, Certificate
 from .forms import ImageForm
-
-
-
-# Create your views here.
+from django.utils import timezone
 
 def indexView(request):
     return render(request, 'index.html')
@@ -20,20 +17,18 @@ def dashboardView(request):
     images  = Images.objects.all()
     form = ImageForm(request.POST, request.FILES)
 
-    #context = {'profiles': profile, 'form': form}
     if request.method == 'POST':
         if form.is_valid():
             form.instance.profile = request.user.profile
+            form.instance.certification_due_date =  form.instance.getDueDate()
+            form.instance.is_valid = form.instance.isValid()
             form.save()
-            # img_obj = form.instance
-            # return render(request, 'dashboard.html', {'images': images, 'profiles': profile, 'form': form, 'img_obj': img_obj})
             return redirect("dashboard")
     else:
         form = ImageForm()           
-    return render(request, 'dashboard.html', {'form': form, 'profiles': profile, 'images': images})
+    return render(request, 'dashboard.html', {'form': form, 'profiles': profile, 'images': images})  
 
-
-#Fovides data from backend to html templates
+#Provides data from backend to html templates
 def registerView(request):
     if request.method == "POST":
         form = UserForm(request.POST)  
@@ -42,6 +37,5 @@ def registerView(request):
             return redirect('login_url')
     else:
         form = UserForm()    
-
     return render(request, 'registration/register.html', {'form': form }) 
 
