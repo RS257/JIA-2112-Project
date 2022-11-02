@@ -18,6 +18,7 @@ make_inactive.short_description = "Make inactive"
 
 class StateAdminProfile(admin.ModelAdmin):
     list_display = ('profile_name', 'fullName', 'roles', 'is_active')
+    exclude = ('counter',)
     inlines = [ImagesAdmin]
     actions = [make_active, make_inactive]
 
