@@ -30,11 +30,11 @@
     {% block content %}
         
         {% if user.is_authenticated %}
-            <center>
+        <div style = "position: absolute; top:  50%; left: 50%; transform: translate(-50%,-50%);">
             <h1 style='color:white'>Logout?</h1>
             <a href="{% url 'logout' %}" class="btn btn-primary" style="width: 9rem;"><h3>Yes</h3></a>
-            </center>
             
+        </div>   
         {% else %}
 
             <div class="container" align = "center">
