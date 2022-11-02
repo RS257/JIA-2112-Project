@@ -54,7 +54,8 @@ class Profile(models.Model):
         i = 0
         for role in self.roles_list.all():
             for cert in role.certificates_list.all():
-                i += 1
+                if cert.is_published:
+                    i += 1
         return i 
 
     #Increments a counter in dashboard.html to find out the number of valis certificates for a profile
