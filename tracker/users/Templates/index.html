@@ -18,9 +18,10 @@
 
             {% comment %} TODO link to dashboard or hom?  {% endcomment %}
             <a class="navbar-brand" href = "{% url 'home' %}">Valliant Certification Tracker </a>
-
+            {% if user.is_authenticated %}
             <button class="btn btn-outline-success">
                 <a class="navbar-brand" href = "{% url 'home' %}">Logout </a></button>
+            {% endif %}    
             
         </div>
     </nav>
