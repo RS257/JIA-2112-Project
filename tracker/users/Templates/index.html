@@ -8,17 +8,35 @@
     <title>Valliant Certification Tracker</title>
 </head>
 <body style="background-color: #232323;">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+        <div class="container-fluid">
+            <img src="{% static 'Logo.jpg' %}" alt="" width="50" height="50">
+
+            {% comment %} TODO link to dashboard or hom?  {% endcomment %}
+            <a class="navbar-brand" href = "{% url 'home' %}">Valliant Certification Tracker </a>
+
+            <button class="btn btn-outline-success" disabled='disabled' href = "{% url 'home' %}" >Logout</button>
+            
+        </div>
+    </nav>
+    <br/>
+    <br/>
+ 
     {% block content %}
-        {% comment %} <center><h1>Valliant Certification Tracker</h1></center> {% endcomment %}
+        
         {% if user.is_authenticated %}
-            <center><a href="{% url 'logout' %}">Logout</a></center>
+            <center>
+            <h1 style='color:white'>Logout?</h1>
+            <a href="{% url 'logout' %}" class="btn btn-primary" style="width: 9rem;"><h3>Yes</h3></a>
+            </center>
+            
         {% else %}
 
             <div class="container" align = "center">
                
                 <div class="card-index" style="width: 48rem;" align="center">
-                    
-                    <center><img src="{% static 'Logo.png' %}" style="width: 22rem;" class="card-img-top" alt="..."></center>
+                   
+                    <center><img src="{% static 'Logo.png' %}" style="width: 20rem; height: 20rem;" class="card-img-top" alt="..."></center>
                     <div class="card-body">
                     <h1 style="padding-bottom: .75rem;">Valliant Certification Tracker</h1>
                     <a href="{% url 'login_url' %}" class="btn btn-primary" style="width: 9rem;"><h3>Login</h3></a>
@@ -26,9 +44,6 @@
                     </div>
                 </div>
               
-            
-            {% comment %} <center><a href="{% url 'login_url' %}">Login</a></center>
-            <center><a href="{% url 'register_url' %}">Register</a></center> {% endcomment %}
         {% endif %}
     {% endblock %}
 </body>
