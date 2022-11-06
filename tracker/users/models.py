@@ -84,6 +84,7 @@ class Images(models.Model):
     def getDueDate(self):
         if self.certificate.is_limited:
             self.certification_due_date = self.certification_completion_date + timedelta(days= self.certificate.exp_interval)
+            self.save()
         return self.certification_due_date
 
     #Truncates everything before an image name and return the name. This method is used in base_dashboard.html and dashboard.html
@@ -91,10 +92,12 @@ class Images(models.Model):
         return str(self.file).rsplit('/', 1)[-1]    
 
     #Returns a boolean value that indicates if a certificate is valid or not. The methos if used in base_dashboard.html and dashboard.html
-    def isValid(self):
+    def isValid(self):        
         if not self.certificate.is_limited:
             return True
-        else:    
+        else:
+            self.is_valid = self.getDueDate() >= timezone.now()
+            self.save()
             return self.getDueDate() >= timezone.now()
              
     class Meta:
