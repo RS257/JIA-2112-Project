@@ -91,7 +91,11 @@
                                                 {% if image.profile.profile_name == profile.profile_name %}
                                                     {% if image.certificate == cert %} 
                                                         {% ifchanged image.certificate %}
-                                                            {{image.certification_due_date.date}}
+                                                            {% if cert.is_limited %}
+                                                                {{image.certification_due_date.date}}
+                                                            {% else %}
+                                                                Unlimited
+                                                            {% endif %}        
                                                         {% endifchanged %} 
                                                     {% endif %} 
                                                 {% endif %}                                   

@@ -37,7 +37,7 @@ def make_unpublished(modeladmin, request, queryset):
 make_unpublished.short_description = "Unpublish"
 
 class CertificateAdmin(admin.ModelAdmin):
-    list_display = ('certificate_name', 'exp_interval', 'is_published')
+    list_display = ('certificate_name', 'exp_interval', 'is_published', 'is_limited')
     actions = [make_published, make_unpublished]
 
 #Register models to show them in admin portal

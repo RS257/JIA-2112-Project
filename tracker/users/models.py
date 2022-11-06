@@ -11,7 +11,8 @@ from django.utils import timezone
 class Certificate(models.Model):
     certificate_name = models.CharField('Name', blank=True, max_length=250, default='', unique=True)
     is_published = models.BooleanField('Published', default=False)
-    exp_interval = models.IntegerField('Expiration interval in days', blank = True, null = True, default=0) 
+    exp_interval = models.IntegerField('Expiration interval in days', blank = True, null = True, default=0)
+    is_limited = models.BooleanField('Time Limited', default=True) 
 
     def __str__(self):
         return self.certificate_name
@@ -81,7 +82,8 @@ class Images(models.Model):
 
     #Returns the due date for an uploaded image(certificate). This method is used in views.py
     def getDueDate(self):
-        self.certification_due_date = self.certification_completion_date + timedelta(days= self.certificate.exp_interval)
+        if self.certificate.is_limited:
+            self.certification_due_date = self.certification_completion_date + timedelta(days= self.certificate.exp_interval)
         return self.certification_due_date
 
     #Truncates everything before an image name and return the name. This method is used in base_dashboard.html and dashboard.html
@@ -90,8 +92,11 @@ class Images(models.Model):
 
     #Returns a boolean value that indicates if a certificate is valid or not. The methos if used in base_dashboard.html and dashboard.html
     def isValid(self):
-        return self.getDueDate() >= timezone.now()
-        
+        if not self.certificate.is_limited:
+            return True
+        else:    
+            return self.getDueDate() >= timezone.now()
+             
     class Meta:
         verbose_name = "File"
         verbose_name_plural = "Files"
