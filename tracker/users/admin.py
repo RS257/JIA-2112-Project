@@ -3,7 +3,7 @@ from .models import Profile, Role, Certificate, Images
 from django.db.models.functions import Concat
 
 class StateImageAdmin(admin.ModelAdmin):
-    list_display = ('certificate', 'profile', 'certification_completion_date', 'certification_due_date', 'is_valid')
+    list_display = ('certificate', 'profile', 'certification_completion_date', 'certification_due_date', 'isValid', 'is_valid')
 
 class ImagesAdmin(admin.StackedInline):
     model = Images
