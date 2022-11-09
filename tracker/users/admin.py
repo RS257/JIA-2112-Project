@@ -3,7 +3,7 @@ from .models import Profile, Role, Certificate, Images
 from django.db.models.functions import Concat
 
 class StateImageAdmin(admin.ModelAdmin):
-    list_display = ('certificate', 'profile', 'certification_completion_date', 'certification_due_date', 'is_valid')
+    list_display = ('certificate', 'profile', 'certification_completion_date', 'certification_due_date', 'isValid', 'is_valid')
 
 class ImagesAdmin(admin.StackedInline):
     model = Images
@@ -37,7 +37,7 @@ def make_unpublished(modeladmin, request, queryset):
 make_unpublished.short_description = "Unpublish"
 
 class CertificateAdmin(admin.ModelAdmin):
-    list_display = ('certificate_name', 'exp_interval', 'is_published')
+    list_display = ('certificate_name', 'exp_interval', 'is_published', 'is_limited')
     actions = [make_published, make_unpublished]
 
 #Register models to show them in admin portal

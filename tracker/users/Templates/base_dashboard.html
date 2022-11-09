@@ -69,7 +69,11 @@
                                           {% if image.profile.profile_name.username == user.username %}
                                               {% if image.certificate == cert %} 
                                                   {% ifchanged image.certificate %}
+                                                    {% if cert.is_limited %}
                                                       {{image.certification_due_date.date}}
+                                                    {% else %}
+                                                      Unlimited
+                                                    {% endif %}    
                                                   {% endifchanged %} 
                                               {% endif %} 
                                           {% endif %}                                   
