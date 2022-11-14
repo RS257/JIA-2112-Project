@@ -3,6 +3,47 @@
 ### This Project was made by team JIA-2112 for the Valliant Public School District. The project is designed as a web application that allows staff to update and keep up with their necessary certification. The application provides simple methods for submission and tracking of the completed certifications. 
 
 # Release Notes
+## Version 0.4.0
+
+### Features
+
+- Certification Changes
+    - When users comeplete certification there is now an idication that they have completed it
+     on their table views
+
+    - Limited vs Not Limited Certifcations
+        - Limted: There is an Expiration field added to certifcations (measured in days till expiration)
+        - Not Limited: There is a field that does not have an expiration for cerifications that need 
+                       to be completed one time or unknown completion date.
+
+- Administrative Updates
+    - added a tableview for admin to see what certifications need to be completed by user in a
+      collapsbile table. 
+      This view will only show if the user has admin permissons
+        - This is based on the Role of the Faculty and Staff assigned so it can change for users.
+        - It has stasticis for completed  vs uncompleted certiifcations
+
+- UI Changes
+    - Added a Navigation Bar that exists on every screen 
+        - There is a logout button that will appear once a user logs in
+    - Added a favicon to the website tab
+
+### Bug Fixes
+- Login page occasionally does not login after account creation
+    - Fixed after we recreated the page backend
+
+- There is a UI Glitch that occasionally the buttons appear Blue instead of the Valliant Orange 
+    - Fixed after we realized we pointing to the wrong CSS files
+
+- Back buttons on the Login and Register page are bugged due to it being pure HTML and Not BootStrapped 
+    - Fixed and functional
+### Known Issues 
+
+- Logout button on dasboard View
+    - When a user clicks back on the logout screen it redirects to the dashbaord, it causes the 
+      logout button not to be clickable.
+      - The temporary solution is to have it fixed  
+
 
 ## Version 0.3.0
 
