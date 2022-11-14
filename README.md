@@ -8,20 +8,20 @@
 ### Features
 
 - Certification Changes
-    - When users comeplete certification there is now an idication that they have completed it
+    - When users complete certification there is now an indication that they have completed it
      on their table views
 
-    - Limited vs Not Limited Certifcations
-        - Limted: There is an Expiration field added to certifcations (measured in days till expiration)
+    - Limited vs Not Limited Certifications
+        - Limted: There is an Expiration field added to Certifications (measured in days till expiration)
         - Not Limited: There is a field that does not have an expiration for cerifications that need 
                        to be completed one time or unknown completion date.
 
 - Administrative Updates
-    - added a tableview for admin to see what certifications need to be completed by user in a
-      collapsbile table. 
-      This view will only show if the user has admin permissons
+    - added a table view for admin to see what certifications need to be completed by user in a
+      collapsible table. (This view will only show if the user has admin permissions)
+      
         - This is based on the Role of the Faculty and Staff assigned so it can change for users.
-        - It has stasticis for completed  vs uncompleted certiifcations
+        - It has statistics for completed  vs uncompleted certifications
 
 - UI Changes
     - Added a Navigation Bar that exists on every screen 
