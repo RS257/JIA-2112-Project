@@ -53,7 +53,7 @@ Once you have reached that folder run the following commands in order
 
 The following to commands need to be run anytime the Backend is updated during development
 and initial setup.
-1 .`python .\manage.py makemigrations`
+1. `python .\manage.py makemigrations`
 
 2. `python .\manage.py migrate`
 
