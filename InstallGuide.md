@@ -60,6 +60,7 @@ and initial setup.
 
 The following command is needed to make an account that will have full Admin access to the project.
 Only needs to be ran once for the initial setup. Afterwards this command can be skipped.
+
 3. `python .\manage.py createsuperuser`
 
 4. If the backend hasn't been updated than this is the go to command to run the project after the first initialization.
