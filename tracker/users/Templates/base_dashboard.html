@@ -28,11 +28,13 @@
     </style>
     
     <center><h2 style="color: #F07621;"><strong>Welcome, {{user.username}}</strong></h2></center>
+    <!-- If user is an admin the page displays an admin view, otherwise it displays a regular user view.--> 
     {% if user.is_superuser %}
       {% block adminContent %}
         {% comment %} content from dashboard.html {% endcomment %}
       {% endblock %}
     {% else %}
+    <!-- The table for a regular user. --> 
     <div class="container">
         <table id="myTable">
             <tr>
@@ -44,7 +46,7 @@
                 <th>Valid</th>
                 <th>File</th>
                 <th></th>               
-            </tr>
+            </tr> 
             {% for profile in profiles %}
                 {% if profile.profile_name.username == user.username %}
                     {% for role in profile.roles_list.all %}
@@ -99,7 +101,6 @@
                                             {% if image.profile.profile_name.username == user.username %}
                                                 {% if image.certificate == cert %} 
                                                     {% ifchanged image.certificate %}
-                                                       {% comment %} {{image}} Id: {{image.id}} {% endcomment %}
                                                        <a href="{{image.file.url}}" download>{{image.getName}}</a>
                                                     {% endifchanged %}  
                                                 {% endif %} 
@@ -128,11 +129,6 @@
                                                         {{ form.as_p }}
                                                         <button type="submit">Upload</button>
                                                     </form>
-                                                    
-                                                    {% comment %} {% if img_obj %}
-                                                        <h3>Succesfully uploaded : {{img_obj.image_name}}</h3>
-                                                        <img src="{{ img_obj.file.url}}" alt="connect" style="max-height:300px">
-                                                    {% endif %} {% endcomment %}
                                                 </div>
                                         
                                                 <!-- Modal footer -->
