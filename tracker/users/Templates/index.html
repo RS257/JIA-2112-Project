@@ -31,15 +31,16 @@
     <br/>
  
     {% block content %}
-        
+        {% comment %} Takes care of Logout option once a user logins on the nav bar  {% endcomment %}
         {% if user.is_authenticated %}
         <div style = "position: absolute; top:  50%; left: 50%; transform: translate(-50%,-50%);">
             <div>
             <center><h1 style='color:white'>Logout?</h1></center>
-            <a href="{% url 'logout' %}" class="btn btn-primary" style="width: 9rem;"><h3>Yes</h3></a>
+            <a href="{% url 'logout' %}" class="btn btn-primary" style="width: 9rem;"><h3>Confirm</h3></a>
             <a href="{% url 'dashboard' %}" class="btn btn-primary" style="width: 9rem;"><h3>Back</h3></a>
             <div>
-        </div>   
+        </div>  
+        {% comment %} This is for if the user is not logged in. THhen they have the options to login or register {% endcomment %} 
         {% else %}
 
             <div class="container" align = "center">
