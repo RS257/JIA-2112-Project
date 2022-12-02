@@ -21,7 +21,8 @@
             <a class="navbar-brand" href = "{% url 'home' %}">Valliant Certification Tracker </a>
             {% if user.is_authenticated %}
             <button class="btn btn-outline-success">
-                <a class="navbar-brand" href = "{% url 'home' %}">Logout</a></button>
+                <a href = "{% url 'home' %}" style="color: black; text-decoration: none;">Logout</a>
+            </button>
             {% endif %}    
             
         </div>
@@ -34,13 +35,10 @@
         {% if user.is_authenticated %}
         <div style = "position: absolute; top:  50%; left: 50%; transform: translate(-50%,-50%);">
             <div>
-            <h1 style='color:white'>Logout?</h1>
+            <center><h1 style='color:white'>Logout?</h1></center>
             <a href="{% url 'logout' %}" class="btn btn-primary" style="width: 9rem;"><h3>Yes</h3></a>
-            <div>
-            <div style = "margin-top:10px;">
             <a href="{% url 'dashboard' %}" class="btn btn-primary" style="width: 9rem;"><h3>Back</h3></a>
-            </div>
-            
+            <div>
         </div>   
         {% else %}
 
