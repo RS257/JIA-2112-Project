@@ -7,6 +7,9 @@
 ## Version 1.0.0
 ### Features
 
+- Administration
+    - Added the Ability to give other users Admin privileges  
+
 - Dashboard Table
     - Text change from Due Date to Expiration,
     - Added Download Feature for all certifcations
