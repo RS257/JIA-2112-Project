@@ -36,13 +36,14 @@
     {% else %}
     <!-- The table for a regular user. --> 
     <div class="container">
+      <div style="color: #F07621;">Sort the table by clicking on certificate or role.</div>   
         <table id="myTable">
             <tr>
                 <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
                 <th onclick="sortTable(0)">Certificate</th>
                 <th onclick="sortTable(1)">Role</th>
                 <th>Completion Date</th>
-                <th>Due Date</th>
+                <th>Expiration Date</th>
                 <th>Valid</th>
                 <th>File</th>
                 <th></th>               
@@ -146,7 +147,6 @@
                 {% endif %}
             {% endfor %}   
         </table>
-        <div style="color: #F07621;">Sort the table by clicking on certificate or role.</div>   
     </div>
    
     <script>

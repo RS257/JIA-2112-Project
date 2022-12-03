@@ -3,40 +3,22 @@
 ### This Project was made by team JIA-2112 for the Valliant Public School District. The project is designed as a web application that allows staff to update and keep up with their necessary certification. The application provides simple methods for submission and tracking of the completed certifications. 
 
 # Release Notes
-## Version 0.4.0
 
+## Version 1.0.0
 ### Features
 
-- Certification Changes
-    - When users complete certification there is now an indication that they have completed it
-     on their table views
-
-    - Limited vs Not Limited Certifications
-        - Limted: There is an Expiration field added to Certifications (measured in days till expiration)
-        - Not Limited: There is a field that does not have an expiration for cerifications that need 
-                       to be completed one time or unknown completion date.
-
-- Administrative Updates
-    - added a table view for admin to see what certifications need to be completed by user in a
-      collapsible table. (This view will only show if the user has admin permissions)
-      
-        - This is based on the Role of the Faculty and Staff assigned so it can change for users.
-        - It has statistics for completed  vs uncompleted certifications
+- Dashboard Table
+    - Text change from Due Date to Expiration,
+    - Added Download Feature for all certifcations
 
 - UI Changes
-    - Added a Navigation Bar that exists on every screen 
-        - There is a logout button that will appear once a user logs in
-    - Added a favicon to the website tab
-
+    - Aligned Text on the Navbar
+    - put the Yes and Back buttons on the logout page on the same row.
 ### Bug Fixes
-- Login page occasionally does not login after account creation
-    - Fixed after we recreated the page backend
 
-- There is a UI Glitch that occasionally the buttons appear Blue instead of the Valliant Orange 
-    - Fixed after we realized we pointing to the wrong CSS files
+- Fixed a Bug where uploading files would push to the wrong folder
 
-- Back buttons on the Login and Register page are bugged due to it being pure HTML and Not BootStrapped 
-    - Fixed and functional
+- Fixed a file getting bug for the download 
 ### Known Issues 
 
 - Logout button on dasboard View
@@ -45,65 +27,71 @@
       - The temporary solution is to have it fixed  
 
 
-## Version 0.3.0
+# Install Guide
 
-### Features
+This project needs a server that can host the Project and the Media Files (the media files in this instance is the certifcations that will be uploaded by each employee). Since ultimeately this project is a website, there are many ways to host the application and run it.
 
-- added a table for Faculty and Staff to see what certifications need to be completed. 
-    - This is based on the Role of the Faculty and Staff assigned so it can change for users.
+We reccomend following the official [Django Deployment Checklist](https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/).
+Another good resources for Django Deployment can be found [here](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment). 
 
-- There is an `Upload` button to upload a certification.
-    - Added an ability to allow the user to browse your local files to upload
-    - Added a Dropdown selection on menu for the specific certification
-    - Added a Date completed selection on to the certifications
-    - Certificates are organized by date uploaded in the backend 
+Media Files will also need a host as well. One such service that can host media files is an [Amazon Web Service S3 bucket](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html).
 
-- Administrative Updates
-    - Ability to login into the System
+If there any changes that need to be made for accessing or setting endpoints. Those changes will generally exist in the `settings.py`
+found in `tracker/tracker/` folder.
 
 
-- UI Overhaul
-    - Coloring is aligned to the Valliant School System Colors
-    - Added Bootstrap5 to the project
-    - Forms have shadows around them to better visually seperate them from the space they are in.
-    - Created `Back` buttons on the Login and Registration Pages
+For this install guide, we will show how to run the application on the local host side. 
 
-### Bug Fixes
-- N/A
+## Prerequsites 
 
-### Known Issues 
-- Login page occasionally does not login after account creation
+A computer that has the ltest version of python3 installed. 
 
-- Back buttons on the Login and Register page are bugged due to it being pure HTML and Not BootStrapped 
-    - This will be fixed next sprint. 
+[Python3 Installation](https://www.python.org/downloads/) 
 
-- There is a UI Glitch that occasionally the buttons appear Blue instead of the Valliant Orange 
+## Dependencies 
+
+The application itself is using django for the Backend. It can be installed by following the [install guide on the Django website](https://docs.djangoproject.com/en/4.1/intro/install/)
+
+The frontend of the application is using Bootstrap5 and HTML. 
+(This repository already has Bootstrap5 into it. It can be found in the `tracker/users/static/home`).
+
+To allow media file uploads the project needs to have [Pillow installed](https://pillow.readthedocs.io/en/stable/installation.html). 
+
+## Download
+
+You can download the application from 
+`/github.com/RS257/JIA-2112-Project/JIA-2112-Project.zip`
+
+## Build
+    There isn't a need for a build file in this application
+
+## Installation 
+
+There is a specifc file structure that the project can exist in.
+
+W3 Schools has a good tutorial on setting up the file structure [here](https://www.w3schools.com/django/django_getstarted.php)
+
+Once you have created the file structure as shown from the tutorial, create a new folder in the root directory with the title of the project. Inside that folder you can unzip the app or you can do a git clone if you are developing the code.  
+
+## Running the Application 
+
+To run the application from the terminal, cd into the root tracker folder. 
+It should have a file by the name of `manage.py`
+
+Once you have reached that folder run the following commands in order 
+
+The following to commands need to be run anytime the Backend is updated during development
+and initial setup.
+1. `python .\manage.py makemigrations`
+
+2. `python .\manage.py migrate`
 
 
-## Version 0.2.0
+The following command is needed to make an account that will have full Admin access to the project.
+Only needs to be ran once for the initial setup. Afterwards this command can be skipped.
 
-### Features
-* Roles added
-* User profile added
-* Roles assignment to users added
-* New users are able to write their first and last names during registration 
+3. `python .\manage.py createsuperuser`
 
-### Bug Fixes
-N/A
-
-### Known Issues 
-N/A
-
-
-## Version 0.1.0
-
-### Features
-* User registration of F/SM
-* User login of F/SM
-* User logout of F/SM
-
-### Bug Fixes
-N/A
-
-### Known Issues 
-N/A
+4. If the backend hasn't been updated than this is the go to command to run the project after the first initialization.
+   If the backend has been updated run commands 1 and 2 before running this one.
+`python .\manage.py runserver`
