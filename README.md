@@ -11,7 +11,7 @@
   - [Known Issues](https://github.com/RS257/JIA-2112-Project#known-issues)
    
 - [Install Guide](https://github.com/RS257/JIA-2112-Project#install-guide)
-    - 
+
 - [How To Use the Application](https://github.com/RS257/JIA-2112-Project#known-issues)
 
 
