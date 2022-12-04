@@ -4,9 +4,9 @@
 
 # Table of Contents
 
-1. [Release Notes]()
-2. [Install Guide]()
-3. [How To Use the Application]()
+1. [Release Notes](https://github.com/RS257/JIA-2112-Project#version-100)
+2. [Install Guide](https://github.com/RS257/JIA-2112-Project#install-guide)
+3. [How To Use the Application](https://github.com/RS257/JIA-2112-Project#install-guide)
 
 
 
