@@ -2,6 +2,16 @@
 
 ### This Project was made by team JIA-2112 for the Valliant Public School District. The project is designed as a web application that allows staff to update and keep up with their necessary certification. The application provides simple methods for submission and tracking of the completed certifications. 
 
+# Table of Contents
+
+1. [Release Notes]()
+2. [Install Guide]()
+3. [How To Use the Application]()
+
+
+
+
+
 # Release Notes
 
 ## Version 1.0.0
@@ -98,3 +108,6 @@ Only needs to be ran once for the initial setup. Afterwards this command can be 
 4. If the backend hasn't been updated than this is the go to command to run the project after the first initialization.
    If the backend has been updated run commands 1 and 2 before running this one.
 `python .\manage.py runserver`
+
+
+
