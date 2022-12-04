@@ -12,7 +12,7 @@
    
 - [Install Guide](https://github.com/RS257/JIA-2112-Project#install-guide)
     - 
-- [How To Use the Application](https://github.com/RS257/JIA-2112-Project#install-guide)
+- [How To Use the Application]()
 
 
 
@@ -116,4 +116,8 @@ Only needs to be ran once for the initial setup. Afterwards this command can be 
 `python .\manage.py runserver`
 
 
+# How to use the Application
 
+The documentation on how to use the application can be found in the PDFs found in `/documentation/pdf`.
+
+If you are a new user please refer to the registration first before going into the specific How To for your use case 
