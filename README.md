@@ -4,9 +4,15 @@
 
 # Table of Contents
 
-1. [Release Notes](https://github.com/RS257/JIA-2112-Project#version-100)
-2. [Install Guide](https://github.com/RS257/JIA-2112-Project#install-guide)
-3. [How To Use the Application](https://github.com/RS257/JIA-2112-Project#install-guide)
+- [Release Notes](https://github.com/RS257/JIA-2112-Project#version-100)
+  
+  - [Features](https://github.com/RS257/JIA-2112-Project#features)
+  - [Bug Fixes](https://github.com/RS257/JIA-2112-Project#bug-fixes)
+  - [Known Issues](https://github.com/RS257/JIA-2112-Project#known-issues)
+   
+- [Install Guide](https://github.com/RS257/JIA-2112-Project#install-guide)
+    - 
+- [How To Use the Application](https://github.com/RS257/JIA-2112-Project#install-guide)
 
 
 
