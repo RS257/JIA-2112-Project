@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <img src="{% static 'Logo1.png' %}" alt="" width="50" height="50">
 
-            {% comment %} TODO link to dashboard or hom?  {% endcomment %}
+            {% comment %} TODO link to dashboard or home?  {% endcomment %}
             <a class="navbar-brand" href = "{% url 'home' %}">Valliant Certification Tracker </a>
             {% if user.is_authenticated %}
             <button class="btn btn-outline-success">
@@ -40,7 +40,7 @@
             <a href="{% url 'dashboard' %}" class="btn btn-primary" style="width: 9rem;"><h3>Back</h3></a>
             <div>
         </div>  
-        {% comment %} This is for if the user is not logged in. THhen they have the options to login or register {% endcomment %} 
+        {% comment %} This is for if the user is not logged in. Then they have the options to login or register {% endcomment %}
         {% else %}
 
             <div class="container" align = "center">
