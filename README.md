@@ -44,6 +44,11 @@
     - When a user clicks back on the logout screen it redirects to the dashbaord, it causes the 
       logout button not to be clickable.
       - The temporary solution is to have it fixed  
+      
+- Valid Certifications can not be made InValid if they are active
+  - This make sense that validity is tied to expiration, but a bad file could cause an issue and need to be made InValid and resubmitted
+  
+- sometimes the Name is too long for certification when uploading a certification (try uploading a child abuse certification to reproduce the issue)
 
 
 # Install Guide
