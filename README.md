@@ -126,3 +126,5 @@ Only needs to be ran once for the initial setup. Afterwards this command can be 
 The documentation on how to use the application can be found in the PDFs found in `/documentation/pdf`.
 
 If you are a new user please refer to the registration first before going into the specific How To for your use case 
+
+We have also added a Detailed Design of the System to the Doceumentation.
